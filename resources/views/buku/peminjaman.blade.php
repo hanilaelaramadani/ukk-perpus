@@ -1,23 +1,27 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.perpus')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <div class="mb-4">
-                        <a href="{{ route('peminjaman.tambah') }}" class="bg-blue-500 hover:bg-blue-700 text-black border font-bold py-2 px-4 rounded">
-                            + Tambah Data Peminjaman
-                        </a>
-                    </div>
+@section('content')
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body bg-white">
+                        <h1 class="h3 font-weight-bold mb-4">Data Peminjaman</h1>
+                        @if(session('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
 
-                    <table class="table-auto w-full border-collapse border border-gray-400">
-                        <thead>
-                            <tr>
+                        <div class="mb-4">
+                            <a href="{{ route('peminjaman.tambah') }}" class="btn btn-primary">
+                                + Tambah Data Peminjaman
+                            </a>
+                        </div>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
                                 <th class="px-4 py-2 border">Nama Peminjam</th>
                                 <th class="px-4 py-2 border">Buku yang Dipinjam</th>
                                 <th class="px-4 py-2 border">Tanggal Peminjaman</th>
@@ -58,4 +62,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection
