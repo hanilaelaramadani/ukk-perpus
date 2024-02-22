@@ -52,10 +52,16 @@ class BukuController extends Controller
     }
     public function update(Request $request, $id){
         $request->validate([
-            'nama_buku'=>'required',
+            'judul'=>'required',
+            'penulis'=>'required',
+            'penerbit'=>'required',
+            'tahun_terbit'=>'required',
         ]);
-        Kategori::find($id)->update([
-            'nama_buku'=>$request->nama_buku,
+        Buku::find($id)->update([
+            'judul'=>$request->judul,
+            'penulis'=>$request->penulis,
+            'penerbit'=>$request->penerbit,
+            'tahun_terbit'=>$request->tahun_terbit,
         ]);
         return redirect('/buku');
     }
