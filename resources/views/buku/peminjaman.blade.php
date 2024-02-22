@@ -14,7 +14,7 @@
                         @endif
 
                         <div class="mb-4">
-                            <a href="{{ route('peminjaman.tambah') }}" class="btn btn-primary">
+                            <a href="{{ route('peminjaman.tambah') }}" class="btn btn-info">
                                 + Tambah Data Peminjaman
                             </a>
                         </div>

@@ -1,9 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.perpus')
+@section('content')
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -39,11 +35,11 @@
                         <input type="date" required name="tanggal_pengembalian" id="tanggal_pengembalian" class="mt-1 p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300">
                     </div>
                     <br>
-                    <button type="submit" class="bg-gray-500 hover:bg-blue-700 text-black border font-bold py-2 px-4 rounded">
+                    <button type="button" class="btn btn-success">
                         Simpan
                     </button>
                 </form>
             </div>
         </div>
     </div>
-</x-app-layout>
+    @endsection

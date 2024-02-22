@@ -9,7 +9,7 @@
 
                     <div class="card-body">
                         <div class="mb-4">
-                            <a href="{{ route('buku.create') }}" class="btn btn-primary">
+                            <a href="{{ route('buku.create') }}" class="btn btn-info">
                                 + Tambah Data Buku
                             </a>
                         </div>
@@ -21,6 +21,8 @@
                                     <th>Penulis</th>
                                     <th>Penerbit</th>
                                     <th>Tahun Terbit</th>
+                                    <th class="col-3 px-4 py-2">Aksi</th>
+                                    
                                     
                                 </tr>
                             </thead>
@@ -31,8 +33,17 @@
                                         <td>{{ $b->judul }}</td>
                                         <td>{{ $b->penulis }}</td>
                                         <td>{{ $b->penerbit }}</td>
-                                        <td>{{ $b->tahun_terbit }}</td>
-
+                                        <td>{{ $b->tahun_terbit }}</td><td class="px-4 py-2">
+                                    <form method="post" action="{{route('buku.destroy', $b->id)}}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">
+                                        <i class="fa fa-trash"></i>    
+                                        Hapus</button>
+                                    
+                                    <a class="btn btn-warning" href="{{route('buku.edit', $b->id)}}">Edit</a>
+                                    
+                                </td>
                                     </tr>
                                 @empty
                                     <tr>

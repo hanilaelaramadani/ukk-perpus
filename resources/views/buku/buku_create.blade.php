@@ -1,9 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.perpus')
+@section('content')
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -59,7 +55,7 @@
 
 
                                             <button type="submit"
-                                                class="bg-blue-500 text-black border py-2 px-4 rounded">Simpan</button>
+                                            <button type="button" class="btn btn-success">Simpan</button>
                                         </form>
                                     </div>
                                 </div>
@@ -70,4 +66,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection
