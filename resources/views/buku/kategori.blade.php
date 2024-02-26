@@ -35,6 +35,7 @@
                                     
                                     <a class="btn btn-warning" href="{{route('kategori.edit', $k->id)}}">Edit</a>
                                 </td>
+                                </form>
                             </tr>
                             @empty
                             <tr>

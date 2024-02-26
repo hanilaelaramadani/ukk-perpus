@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/peminjaman/tambah', [PeminjamanController::class, 'tambahPeminjaman'])->name('peminjaman.tambah');
     Route::post('/peminjaman/store', [PeminjamanController::class, 'storePeminjaman'])->name('peminjaman.store');
     Route::post('/peminjaman/selesai/{id}', [PeminjamanController::class, 'kembalikanBuku'])->name('peminjaman.kembalikan');
+    Route::get('/print', [PeminjamanController::class, 'print'])->name('print');
 });
 
 require __DIR__.'/auth.php';
