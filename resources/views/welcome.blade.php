@@ -76,10 +76,10 @@
     <div class="container">
         <div class="row">
             @foreach ($buku as $b)
-            <div class="col-md-3"> <!-- Adjust the column size based on your preference -->
-                <div class="card mb-4">
-                    <img src="{{ asset('storage/'.$b->foto) }}" class="card-img-top" alt="...">
-                    <div class="card-body">
+            <div class="col-lg-3 mb-3 d-flex align-items-stretch"> <!-- Adjust the column size based on your preference -->
+                <div class="card flex-grow-1">
+                    <img src="{{ asset('storage/'.$b->foto) }}" class="card-img-top" alt="">
+                    <div class="card-body d-flex flex-column ">
                         <h5 class="card-title">{{$b->judul}}</h5>
                         <p class="card-text">{{$b->penulis}}</p>
                         <p class="card-text">{{$b->penerbit}}</p>

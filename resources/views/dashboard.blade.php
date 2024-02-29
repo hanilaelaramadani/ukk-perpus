@@ -3,11 +3,11 @@
 @section('content')
 <div class="py-5">
     <div class="container">
-        <!-- @php
+            @php
                 $totalBuku = \App\Models\Buku::count();
                 $totalPeminjam = \App\Models\Peminjaman::count();
                 $totalUser = \App\Models\User::count();
-            @endphp -->
+            @endphp
 
         <div class="row">
             <div class="col-xl-4 col-md-6 mb-4">
