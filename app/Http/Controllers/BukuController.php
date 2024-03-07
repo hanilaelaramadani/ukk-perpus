@@ -80,4 +80,9 @@ class BukuController extends Controller
         $buku = Buku::all();
         return view('welcome', ['buku' => $buku]);
     }
+
+    public function detail($id){
+    $buku = Buku::find($id);
+    return view('buku.detail', ['buku' => $buku]);
+    }
 }

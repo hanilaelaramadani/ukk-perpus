@@ -42,6 +42,8 @@
                                                 <input type="number" name="tahun_terbit" value="{{$buku->tahun_terbit}}"class="w-full border p-2"
                                                     required>
                                             </div>
+
+                                            
                                             <button type="submit" class="btn btn-success">Simpan</button>
                                         </form>
                     </div>

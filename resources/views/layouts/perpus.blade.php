@@ -47,27 +47,40 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
+            @role('admin')
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Perpustakan
+            </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Perpustakaan</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="{{url ('kategori')}}">Data Kategori</a>
-                        <a class="collapse-item" href="{{url ('buku')}}">Data Buku</a>
-                        <a class="collapse-item" href="{{url ('peminjaman')}}">Data Peminjaman</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route ('kategori')}}">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Data Kategori</span></a>
             </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route ('buku')}}">
+                <i class="fas fa-fw fa-list"></i>
+                    <span>Data Buku</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route ('peminjaman.index')}}">
+                <i class="fas fa-fw fa-bookmark"></i>
+                    <span>Data Peminjaman</span></a>
+            </li>
+            @endrole
+
+            
+            @role('user')
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route ('peminjaman.user')}}">
+                <i class="fas fa-fw fa-bookmark"></i>
+                    <span>Data Peminjaman</span></a>
+            @endrole
+
+            
 
 
             <!-- Divider -->

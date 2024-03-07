@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="mb-4">
+
                         <a href="{{ route('kategori.create') }}" class="btn btn-info">
                             + Tambah Data Kategori
                         </a>
@@ -15,7 +16,7 @@
 
                 <div class="card-body">
                     <table class="table table-bordered">
-                        <thead>
+                        <thead class>
                             <tr>
                                 <th class="px-4 py-2">Nama Kategori</th>
                                 <th class="col-3 px-4 py-2">Aksi</th>

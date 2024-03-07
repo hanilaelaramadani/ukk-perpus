@@ -17,16 +17,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//untuk yng blm register
 Route::get('/', [BukuController::class, 'welcome']);
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/buku/detail/{id}', [BukuController::class, 'detail'])->name('detail');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware(['auth','role:admin']) ->group(function () {
     Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
     Route::get('/kategori/tambah', [KategoriController::class, 'create'])->name('kategori.create');
     Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori.store');
@@ -46,6 +50,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/print', [PeminjamanController::class, 'print'])->name('print');
 });
 
-require __DIR__.'/auth.php';
+//user
+Route::get('/user/peminjaman', [PeminjamanController::class, 'userPeminjaman'])->name('peminjaman.user')
+->middleware(['auth', 'role:user']);
 
+
+require __DIR__.'/auth.php';
 
