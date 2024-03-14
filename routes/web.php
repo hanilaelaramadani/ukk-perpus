@@ -24,6 +24,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/buku/detail/{id}', [BukuController::class, 'detail'])->name('detail');
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -42,7 +43,7 @@ Route::middleware(['auth','role:admin']) ->group(function () {
     Route::post('/buku/store', [BukuController::class, 'store'])->name('buku.store');
     Route::delete('/buku/hapus/{id}', [BukuController::class, 'destroy'])->name('buku.destroy');
     Route::get('/buku/edit/{id}', [BukuController::class, 'edit'])->name('buku.edit'); 
-    Route::patch('/buku/update/{id}', [BukuController::class, 'update'])->name('buku.update');
+    Route::put('/buku/update/{id}', [BukuController::class, 'update'])->name('buku.update');
     Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');  
     Route::get('/peminjaman/tambah', [PeminjamanController::class, 'tambahPeminjaman'])->name('peminjaman.tambah');
     Route::post('/peminjaman/store', [PeminjamanController::class, 'storePeminjaman'])->name('peminjaman.store');
