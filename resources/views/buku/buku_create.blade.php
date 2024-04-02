@@ -64,8 +64,8 @@
                                                 <input type="file" name="foto" accept="image/*" class="form-control" required>
                                             </div>
 
-                                            <button type="submit"
-                                            <button type="button" class="btn btn-success">Simpan</button>
+                                           
+                                            <button type="submit" class="btn btn-success">Simpan</button>
                                         </form>
                                     </div>
                                 </div>

@@ -3,7 +3,8 @@
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PeminjamanController; 
+use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,19 +20,30 @@ use Illuminate\Support\Facades\Route;
 
 //untuk yng blm register
 Route::get('/', [BukuController::class, 'welcome']);
-Route::get('/dashboard', function () {
+
+//semua level user yang sudah login
+Route::middleware(['auth','verified'])->group(function () {
+    Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/buku/detail/{id}', [BukuController::class, 'detail'])->name('detail');
-
-
-Route::middleware('auth')->group(function () {
+    })->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/buku/detail/{id}', [BukuController::class, 'detail'])->name('detail');
 });
 
+//admin
 Route::middleware(['auth','role:admin']) ->group(function () {
+    Route::get('/user', [UserController::class, 'index'])->name('users.index');  
+    Route::get('/user/tambah', [UserController::class, 'create'])->name('users.create');
+    Route::post('/user/store', [UserController::class, 'store'])->name('users.store'); 
+    Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('users.edit'); 
+    Route::put('/user/update/{id}', [UserController::class, 'update'])->name('users.update');
+    Route::post('/user/hapus/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+});
+
+//petugas dan admin
+Route::middleware(['auth','role:petugas|admin']) ->group(function () {
     Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
     Route::get('/kategori/tambah', [KategoriController::class, 'create'])->name('kategori.create');
     Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori.store');
