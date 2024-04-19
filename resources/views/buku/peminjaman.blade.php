@@ -28,8 +28,8 @@
                                 <th>Nama Peminjam</th>
                                 <th>Buku yang Dipinjam</th>
                                 <th>Tanggal Peminjaman</th>
+                                <th>Tanggal Seharusnya Kembali</th>
                                 <th>Tanggal Pengembalian</th>
-                                <th>Denda</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
@@ -37,11 +37,11 @@
                         <tbody>
                             @forelse($peminjaman as $p)
                             <tr>
-                                <td class="px-4 py-2 border">{{ $p->user->name }}</td>
-                                <td class="px-4 py-2 border">{{ $p->buku->judul }}</td>
-                                <td class="px-4 py-2 border">{{ $p->tanggal_peminjaman }}</td>
-                                <td class="px-4 py-2 border">{{ $p->tanggal_pengembalian }}</td>
-                                <td class="px-4 py-2 border">{{ $p->denda }}</td>
+                            <td class="px-4 py-2">{{ $p->user->name }}</td>
+                            <td class="px-4 py-2">{{ $p->buku->judul }}</td>
+                            <td class="px-4 py-2">{{ \Carbon\Carbon::parse($p->tanggal_peminjaman)->format('d-M-Y') }}</td>
+                            <td class="px-4 py-2">{{ $p->tanggal_pengembalian ? \Carbon\Carbon::parse($p->tanggal_pengembalian)->format('d-M-Y') : 'Belum Dikembalikan' }}</td>
+                            <td class="px-4 py-2">{{ $p->denda ? \Carbon\Carbon::parse($p->denda)->format('d-M-Y') : '' }}</td>
 
                                 <td class="px-4 py-2 border">
                                     @if($p->status === 'Dipinjam')
@@ -59,8 +59,12 @@
                                         <button type="submit" class="btn btn-primary">
                                             Kembalikan
                                         </button>
+                                        @elseif ($p->status === 'Denda')
+                                                    <a href="{{route('peminjaman.denda', $p->id)}}" class="btn btn-danger">
+                                                        Bayar Denda
+                                                    </a>
+                                                @else ($p->status === 'Dikembalikan')
                                     </form>
-                                    @else
                                     -
                                     @endif
                                 </td>
