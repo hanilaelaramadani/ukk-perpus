@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <div class="container-fluid">
         <img src="{{asset ('/assets/images/i.png') }}" alt="homepage" class="dark-logo" />
             <a class="navbar-brand" href="#">Perpustakaan Digital SD</a>

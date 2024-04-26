@@ -18,7 +18,7 @@
                         <a href="{{ route('peminjaman.tambah') }}" class="btn btn-info">
                             + Tambah Data Peminjaman
                         </a>
-                        <a href="{{ route('print') }}" class="btn btn-primary">
+                        <a href="{{ route('print') }}" class="btn btn-info">
                             <i class="fa fa-download"></i>Ekspor PDF</a>
                     </div>
 
@@ -64,9 +64,10 @@
                                                         Bayar Denda
                                                     </a>
                                                 @else ($p->status === 'Dikembalikan')
-                                    </form>
+                                   
                                     -
                                     @endif
+                                    </form>
                                 </td>
                             </tr>
                             @empty

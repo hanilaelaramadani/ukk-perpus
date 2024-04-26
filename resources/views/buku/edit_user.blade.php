@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow-lg rounded-3">
-                <div class="card-header bg-primary text-white">
+                <div class="card-header bg-info text-white">
                     <h5 class="card-title mb-0">Edit Data User</h5>
                 </div>
                 <div class="card-body">
@@ -39,7 +39,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-info">Update</button>
                     </form>
                 </div>
             </div>
